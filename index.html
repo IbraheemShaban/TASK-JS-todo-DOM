@@ -10,27 +10,26 @@
 </head>
 
 <body>
-
     <div>
         <h1>Create your task </h1>
         <!-- KEEP THE SELECT EMPTY. IT WILL BE FILLED BY JS  -->
         <select id="categories-list" title="All">
         </select>
-
         <input type="text" name="new-task" id="new-task" placeholder="* Add a new task">
+        <input type="button" name="Add" value="Add" id="task-btn">
     </div>
-
     <div>
         <h1>Create your category </h1>
         <input type="text" name="new-category" id="new-category" placeholder="* Add a new category">
+        <input type="button" name="Create a category" value="Create a category" id="category-btn">
     </div>
-
     <!-- FILTERING DIV -->
     <div>
         <h1>filter by category</h1>
         <!-- KEEP THE SELECT EMPTY. IT WILL BE FILLED BY JS  -->
         <select id="categories-list-filter" title="All">
         </select>
+        <input type="button" name="filter" value="filter" id="filter-btn">
         <!-- DONE for filtering thing -->
         <div>
             <input type="checkbox" name="done" id="done">
@@ -38,16 +37,11 @@
         </div>
     </div>
     <hr>
-
     <!-- KEEP THE DIV EMPTY. IT WILL BE FILLED BY JS  -->
     <div id="tasks-list"></div>
-
-
 </body>
-
 <script src="./components/categoryItem.js"></script>
 <script src="./components/taskItem.js"></script>
-
 <script src="./engine.js"></script>
 <script src="./index.js"></script>
 
