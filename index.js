@@ -2,32 +2,20 @@
 const CATEGORY_SELECTOR = 'categories-list';
 const CATEGORY_FILTER = 'categories-list-filter';
 
-let tasks = [];
-let categories = [];
-
-// REMOVE ME: SAMPLE FILLING
-tasks = [
-  { id: 0, title: 'Game of thrones', category: 'Movies', done: false },
-  { id: 1, title: 'Toy Story 4', category: 'Movies', done: false },
-];
-
-categories = ['Movies', 'Groceries'];
-
-renderScreen();
+const tasks = [];
+const categories = [];
 
 document.getElementById('filter-btn').onclick = function () {
-  renderCategories(categories, CATEGORY_SELECTOR);
-  renderCategories(categories, CATEGORY_FILTER);
-  renderTasks(filterTasks(tasks), 'tasks-list');
+  renderScreen(filterTasks(tasks));
 };
 
 document.getElementById('task-btn').onclick = function () {
   addTask();
-  renderScreen();
+  renderScreen(tasks);
 };
 document.getElementById('category-btn').onclick = function () {
   addCategory();
-  renderScreen();
+  renderScreen(tasks);
 };
 
 function taskChecked(taskId, checked) {
@@ -36,7 +24,6 @@ function taskChecked(taskId, checked) {
   } else if (!checked) {
     tasks[taskId].done = false;
   }
-  // console.log(`${checked ? '' : 'UN'}CHECKED TASK`, taskId);
 }
 
 function addTask() {
@@ -44,28 +31,31 @@ function addTask() {
   const taskTitle = getNewTaskText();
   tasks.push({
     id: tasks.length,
-    title: getNewTaskText(),
-    category: document.getElementById('categories-list').value,
+    title: taskTitle,
+    category: selectedCategory,
     done: false,
   });
 }
 
 function addCategory() {
   const newCategory = getNewCategoryText();
-  categories.push(getNewCategoryText());
+  categories.push(newCategory);
 }
 
 function filterTasks(tasks) {
   const selectedCategory = getSelectedCategoryById(CATEGORY_FILTER);
   const done = getFilteredDone();
-  // continue the code here
-  const filteredTasks = tasks.filter((e) => e.category == selectedCategory);
 
-  // alert(`Category: ${selectedCategory} | done: ${done}`);
-  return filteredTasks;
+  if (done) {
+    return tasks.filter(
+      (e) => e.category == selectedCategory && e.done == true
+    );
+  } else {
+    return tasks.filter((e) => e.category == selectedCategory);
+  }
 }
 
-function renderScreen() {
+function renderScreen(tasks) {
   renderCategories(categories, CATEGORY_SELECTOR);
   renderCategories(categories, CATEGORY_FILTER);
   renderTasks(tasks, 'tasks-list');
