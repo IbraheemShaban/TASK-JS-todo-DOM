@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="flex">
     <div>
         <h1>Create your task </h1>
         <!-- KEEP THE SELECT EMPTY. IT WILL BE FILLED BY JS  -->
         <select id="categories-list" title="All">
         </select>
-        <input type="text" name="new-task" id="new-task" placeholder="* Add a new task">
-        <input type="button" name="Add" value="Add" id="task-btn">
+        <input type="text" name="new-task" id="new-task" placeholder="* Add a new task" class="css-input">
+        <input type="button" name="Add" value="Add" id="task-btn" class="btn">
     </div>
     <div>
         <h1>Create your category </h1>
-        <input type="text" name="new-category" id="new-category" placeholder="* Add a new category">
-        <input type="button" name="Create a category" value="Create a category" id="category-btn">
+        <input type="text" name="new-category" id="new-category" placeholder="* Add a new category" class="css-input">
+        <input type="button" name="Create a category" value="Create a category" id="category-btn" class="btn">
     </div>
     <!-- FILTERING DIV -->
     <div>
@@ -29,10 +29,10 @@
         <!-- KEEP THE SELECT EMPTY. IT WILL BE FILLED BY JS  -->
         <select id="categories-list-filter" title="All">
         </select>
-        <input type="button" name="filter" value="filter" id="filter-btn">
+        <input type="button" name="filter" value="filter" id="filter-btn" class="btn">
         <!-- DONE for filtering thing -->
         <div>
-            <input type="checkbox" name="done" id="done">
+            <input type="checkbox" name="done" id="done" class="checkmark2">
             <label for="done">Filter by done</label>
         </div>
     </div>
