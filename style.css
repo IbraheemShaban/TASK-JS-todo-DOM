@@ -38,6 +38,11 @@ p {
 label {
   font-family: Verdana;
 }
+select {
+  border-radius: 15px 15px 15px 15px;
+  background-color: #e0e0e0;
+  font-family: Verdana;
+}
 .btn {
   -webkit-border-radius: 8;
   -moz-border-radius: 8;
